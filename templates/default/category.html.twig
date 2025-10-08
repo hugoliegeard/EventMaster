@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Categorie : {{ type }}
+    Categorie : {{ category.name }}
 {% endblock %}
 
 {% block body %}
-    {# Permet d'afficher les variables passé depuis mon controller. #}
-    <h1>Categorie : {{ type }}</h1>
+    <h1>
+        {{ category.name }}
+    </h1>
+    <ul>
+        {% for event in category.events %}
+            <li>{{ event.title }} <em><small>({{ event.category.name }})</small></em></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
